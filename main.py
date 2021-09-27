@@ -121,7 +121,7 @@ def main():
                 should_i_move = calculate_movement_length(location_list, movement_logger_list)
                 if should_i_move == True:
                     try:
-                        pgui.move(-movement_logger_list[-1][0], -movement_logger_list[-1][1], duration=0.5)
+                        pgui.moveTo(-movement_logger_list[-1][0], -movement_logger_list[-1][1], duration=0.3)
                     except pgui.FailSafeException:
                         continue
                 else:
