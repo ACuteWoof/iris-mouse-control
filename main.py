@@ -67,8 +67,7 @@ def calculate_movement_length(location_list, movement_logger_list):
         min_movement_rate = 5
         x_piped = abs(x)
         y_piped = abs(y)
-        if x_piped == x and y_piped == y:
-            return False
+
         if x_piped > min_movement_rate or y_piped > min_movement_rate:
             is_movement_valid = verify_movement(movement_logger_list, (x*5, y*5))
             if is_movement_valid:
@@ -122,7 +121,7 @@ def main():
                 should_i_move = calculate_movement_length(location_list, movement_logger_list)
                 if should_i_move == True:
                     try:
-                        pgui.move(movement_logger_list[-1][0], movement_logger_list[-1][1], duration=0.5)
+                        pgui.move(-movement_logger_list[-1][0], -movement_logger_list[-1][1], duration=0.5)
                     except pgui.FailSafeException:
                         continue
                 else:
